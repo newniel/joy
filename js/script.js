@@ -37,7 +37,7 @@
       this.loop();
     }
     Snow.prototype = {
-      "constructor": Snow,
+      //"constructor": Snow,
       
       "resizeCanvas": function(){
         this.canvas.width = window.innerWidth;
@@ -107,7 +107,7 @@
         this.pile.ctx.fillStyle = "#fff";
         this.pile.ctx.font = "bold 50px century gothic";
         this.pile.ctx.textAlign = "center";
-        this.pile.ctx.fillText("SNOW!",this.canvas.width/2,this.canvas.height);
+        //this.pile.ctx.fillText("SNOW!",this.canvas.width/2,this.canvas.height);
       },
       
       "updateDelta": function(){
