@@ -246,4 +246,8 @@
     var snow = new Snow();
     
     
-  })("c",1000,3,2,15,4);/*canvas id, max flakes, flake size, spawn speed, gravity, wind power*/
+  })("c",1000,4,3,15,4);/*canvas id, max flakes, flake size, spawn speed, gravity, wind power*/
+
+
+
+  
