@@ -3,6 +3,8 @@ body {
 }
 canvas {
   vertical-align: top;
+  z-index: 100;
+  position: absolute;
 }
 body {
   /* background: #000; */
