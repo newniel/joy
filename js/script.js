@@ -96,11 +96,11 @@
       },
       
       "drawBg": function(){
-        var grd = this.ctx.createLinearGradient(0,0,0,this.canvas.height);
-        grd.addColorStop(0,"#bbb");
-        grd.addColorStop(1,"#888");
-        this.ctx.fillStyle = grd;
-        this.ctx.fillRect(0,0,this.canvas.width,this.canvas.height);
+        // var grd = this.ctx.createLinearGradient(0,0,0,this.canvas.height);
+        // grd.addColorStop(0,"#bbb");
+        // grd.addColorStop(1,"#888");
+        // this.ctx.fillStyle = grd;
+        // this.ctx.fillRect(0,0,this.canvas.width,this.canvas.height);
       },
       
       "drawTxt": function(){
