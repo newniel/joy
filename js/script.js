@@ -97,8 +97,8 @@
       
       "drawBg": function(){
         var grd = this.ctx.createLinearGradient(0,0,0,this.canvas.height);
-        grd.addColorStop(0,"#bbb");
-        grd.addColorStop(1,"#888");
+        grd.addColorStop(0,"#a90e0e");
+        grd.addColorStop(1,"#330000");
         this.ctx.fillStyle = grd;
         this.ctx.fillRect(0,0,this.canvas.width,this.canvas.height);
       },
