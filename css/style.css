@@ -162,7 +162,7 @@ body {
   src: url(https://fonts.gstatic.com/s/greatvibes/v8/RWmMoKWR9v4ksMfaWd_JN9XFiaE.ttf) format('truetype');
 }
 .main-wrapper {
-  /* background: radial-gradient(ellipse at bottom, #a90e0e 5%, #4e0303 55%, #330000 78%); */
+  background: radial-gradient(ellipse at bottom, #a90e0e 5%, #4e0303 55%, #330000 78%);
   position: absolute;
   display: -webkit-box;
   display: flex;
