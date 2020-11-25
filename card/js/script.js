@@ -4,7 +4,6 @@ $(document).ready(function() {
       $card = $('.card');
   
   $card.on('click', function() {
-    alert("AAAAA");
 		$(this).toggleClass('is-opened');
     $clickMe.toggleClass('is-hidden');
 
