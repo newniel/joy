@@ -44,7 +44,7 @@ body {
 @media (max-width: 479px) {
   .card {
     left: calc(50% - 75px);
-    top: calc(50% - 107px);
+    top: calc(50% - 116px);
   }
 }
 .card:before {
