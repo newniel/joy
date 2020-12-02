@@ -18,6 +18,11 @@ body {
   color:#da8078;
 }
 
+.click-info{
+  display: block;
+  color: #FFF;
+}
+
 .card {
   z-index: 100;
   -webkit-perspective: 1500px;
@@ -276,6 +281,7 @@ body {
   -webkit-transition: opacity 0.5s ease-in-out;
   transition: opacity 0.5s ease-in-out;
   opacity: 1;
+  text-align: center;
 }
 .click-icon svg {
   width: 96px;
