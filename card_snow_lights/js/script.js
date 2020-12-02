@@ -2,7 +2,12 @@ $(document).ready(function() {
 
   var $clickMe = $('.click-icon'),
       $card = $('.card'),
-      $audioFile = new Audio('./mp3/christmas.mp3');
+	  $audioFile = new Audio('./mp3/christmas.mp3');
+	  
+  var lightswitch = document.getElementById("switch"), on = false;
+  lightswitch.addEventListener('click', toggleLights, false);
+
+TweenMax.set('.switchnob', {y: '+=90'})
 
       
   $card.on('click', function() {
@@ -19,15 +24,17 @@ $(document).ready(function() {
       $audioFile.currentTime = 0;
 	  $('.xmas.view').removeClass('view');
 	  $('.switch.on').removeClass('on');
-    }
+	  on = false;
+		TweenMax.to('.light',.2, {filter:'', opacity: 0.55})
+		TweenMax.to('.switchnob',.2, {y: '+=90'})
+		$('.cart-page-bottom').removeClass('on');
+	      }
 	});
 
 
 	//lights
-	var lightswitch = document.getElementById("switch"), on = false;
-lightswitch.addEventListener('click', toggleLights, false);
+	
 
-TweenMax.set('.switchnob', {y: '+=90'})
 
 var tl = new TimelineMax({delay: .5});  
 
