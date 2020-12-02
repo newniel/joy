@@ -182,13 +182,21 @@ body {
   }
 }
 
+
+.cart-page-bottom.on{
+  background-color: #61605f;
+  background-image: url("https://www.dropbox.com/s/8hw7guch8d151kg/pattern.png?raw=1");
+}
+.cart-page-bottom.on p{
+  color: #FFF;
+}
+
 .cart-page-inside{
   background: url("../img/Gypsophila1.jpg" ) 0 0 no-repeat !important;
 }
 .cart-page-inside,
 .cart-page-bottom {
-  background-color: #d4d1d0;
-  background-image: url("https://www.dropbox.com/s/8hw7guch8d151kg/pattern.png?raw=1");
+  background-color: #131212;
   border: 20px solid #d4d1d0;
   display: -webkit-box;
   display: -moz-box;

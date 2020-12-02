@@ -35,11 +35,13 @@ function toggleLights(){
   if(on){
     on = false;
     TweenMax.to('.light',.2, {filter:'', opacity: 0.55})
-    TweenMax.to('.switchnob',.2, {y: '+=90'})
+	TweenMax.to('.switchnob',.2, {y: '+=90'})
+	$('.cart-page-bottom').removeClass('on');
   }else{
     TweenMax.to('.switchnob',.2, {y: '-=90'})
-    TweenMax.staggerTo('.light', .5, {filter:'url(\'#glow\')', opacity: 1}, .04)
-    on = true;
+    TweenMax.staggerTo('.light', .5, {filter:'url(\'#glow\')', opacity: 1}, .08)
+	on = true;
+	$('.cart-page-bottom').addClass('on');
   }
 }
 
