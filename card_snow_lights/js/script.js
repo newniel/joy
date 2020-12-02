@@ -19,16 +19,20 @@ TweenMax.set('.switchnob', {y: '+=90'})
       initLetItSnow();
 	  $('.xmas').addClass('view');
 	  $('.switch').addClass('on');
+	  
     }else{
       $audioFile.pause();
       $audioFile.currentTime = 0;
 	  $('.xmas.view').removeClass('view');
 	  $('.switch.on').removeClass('on');
-	  on = false;
+	  if(on){
+	    on = false;
 		TweenMax.to('.light',.2, {filter:'', opacity: 0.55})
 		TweenMax.to('.switchnob',.2, {y: '+=90'})
 		$('.cart-page-bottom').removeClass('on');
-	      }
+	  }
+
+	  }
 	});
 
 
