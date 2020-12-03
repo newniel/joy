@@ -25,7 +25,7 @@ TweenMax.set('.switchnob', {y: '+=90'})
       $audioFile.currentTime = 0;
 	  $('.xmas.view').removeClass('view');
 	  $('.switch.on').removeClass('on');
-	  
+	  $('.run.on').removeClass('on');
 	  if(on){
 	    on = false;
 		TweenMax.to('.light',.2, {filter:'', opacity: 0.55})
