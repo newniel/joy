@@ -1,0 +1,499 @@
+@import url("https://fonts.googleapis.com/css?family=Mirza&amp;subset=latin-ext");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #928A97;
+  background-image: url("https://images.pexels.com/photos/257909/pexels-photo-257909.jpeg?fit=crop&w=1920&h=1280");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.keyColor{
+  color:#da8078;
+}
+
+.click-info{
+  display: block;
+  color: #FFF;
+}
+
+.card {
+  z-index: 100;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  position: absolute;
+  left: calc(50% - 175px);
+  top: calc(50% - 250px);
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -webkit-transition-delay: initial;
+  transition-delay: initial;
+  -webkit-transform: rotate(-10deg) translate(0, 0);
+  transform: rotate(-10deg) translate(0, 0);
+  -webkit-animation: cardIn 1s alternate cubic-bezier(0.87, -0.41, 0.19, 1.44);
+  animation: cardIn 1s alternate cubic-bezier(0.87, -0.41, 0.19, 1.44);
+}
+@media (max-width: 767px) {
+  .card {
+    left: calc(50% - 115px);
+    top: calc(50% - 164.5px);
+  }
+}
+@media (max-width: 479px) {
+  .card {
+    left: calc(50% - 75px);
+    top: calc(50% - 136px);
+  }
+}
+.card:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 50px #000;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.card.is-opened {
+  -webkit-transform: rotate(0deg) translate(175px, 0);
+  transform: rotate(0deg) translate(175px, 0);
+}
+@media (max-width: 767px) {
+  .card.is-opened {
+    -webkit-transform: rotate(0deg) translate(115px, 0);
+    transform: rotate(0deg) translate(115px, 0);
+  }
+}
+@media (max-width: 479px) {
+  .card.is-opened {
+    -webkit-transform: rotate(0deg) translate(75px, 0);
+    transform: rotate(0deg) translate(75px, 0);
+  }
+}
+.card.is-opened .cart-page-front {
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+
+@-webkit-keyframes cardIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotate(-10deg) translate(0, -100%);
+    transform: rotate(-10deg) translate(0, -100%);
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: rotate(-10deg) translate(0, 0);
+    transform: rotate(-10deg) translate(0, 0);
+  }
+}
+
+@keyframes cardIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotate(-10deg) translate(0, -100%);
+    transform: rotate(-10deg) translate(0, -100%);
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: rotate(-10deg) translate(0, 0);
+    transform: rotate(-10deg) translate(0, 0);
+  }
+}
+.card,
+.card-page {
+  width: 350px;
+  height: 500px;
+}
+@media (max-width: 767px) {
+  .card,
+  .card-page {
+    width: 230px;
+    height: 329px;
+  }
+}
+@media (max-width: 479px) {
+  .card,
+  .card-page {
+    /* width: 150px;
+    height: 214px; */
+    width: 176px;
+    height: 280px;
+  }
+}
+
+.card-page {
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
+  cursor: pointer;
+  position: absolute;
+  outline: 1px solid transparent;
+}
+
+.cart-page-front {
+  -webkit-transform-origin: 0 50% 0;
+  transform-origin: 0 50% 0;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: rotateY(-20deg);
+  transform: rotateY(-20deg);
+  z-index: 2;
+}
+
+.cart-page-outside,
+.cart-page-inside {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+}
+
+.cart-page-outside {
+  border: 10px solid #fbfbfb;
+  background: #da8078 url("https://www.dropbox.com/s/xsgg2exs2oparkm/front-bg.png?raw=1") no-repeat center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 767px) {
+  .cart-page-outside {
+    border: 5px solid #fbfbfb;
+  }
+}
+
+
+.cart-page-bottom.on{
+  background-color: #61605f;
+  background-image: url("https://www.dropbox.com/s/8hw7guch8d151kg/pattern.png?raw=1");
+}
+.cart-page-bottom.on p{
+  color: #FFF;
+}
+
+.cart-page-inside{
+  background: url("../img/Gypsophila1.jpg" ) 0 0 no-repeat !important;
+}
+.cart-page-inside,
+.cart-page-bottom {
+  background-color: #131212;
+  border: 20px solid #d4d1d0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -moz-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  box-pack: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  box-align: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  .cart-page-inside,
+  .cart-page-bottom {
+    border: 10px solid #da8078;
+  }
+}
+
+.cart-page-inside {
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+  border-right: none !important;
+  background-position: 0px 80px;
+}
+@media (max-width: 767px) {
+  .cart-page-inside {
+    background-position: 0px 30px;
+  }
+}
+@media (max-width: 479px) {
+  .cart-page-inside {
+    background-position: 0px 30px;
+  }
+}
+
+.cart-page-bottom {
+  z-index: 1;
+  border-left: none !important;
+  background-position: -22px 80px;
+}
+@media (max-width: 767px) {
+  .cart-page-bottom {
+    background-position: 85px 30px;
+  }
+}
+@media (max-width: 479px) {
+  .cart-page-bottom {
+    background-position: 0px 30px;
+  }
+}
+
+.merry-christmas {
+  -webkit-transform: rotate(-20deg);
+  transform: rotate(-20deg);
+}
+.merry-christmas svg {
+  width: 350px;
+  height: auto;
+}
+@media (max-width: 767px) {
+  .merry-christmas svg {
+    width: 200px;
+  }
+}
+@media (max-width: 479px) {
+  .merry-christmas svg {
+    width: 150px;
+  }
+}
+
+.click-icon {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  bottom: 40px;
+  -webkit-animation: iconAnimation 1s infinite alternate ease-in-out;
+  animation: iconAnimation 1s infinite alternate ease-in-out;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+  text-align: center;
+}
+.click-icon svg {
+  width: 96px;
+  height: 96px;
+}
+@media (max-width: 767px) {
+  .click-icon svg {
+    width: 72px;
+    height: 72px;
+  }
+}
+@media (max-width: 479px) {
+  .click-icon svg {
+    width: 48px;
+    height: 48px;
+  }
+}
+.click-icon.is-hidden {
+  opacity: 0;
+}
+
+@-webkit-keyframes iconAnimation {
+  0% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+  100% {
+    -webkit-transform: translate(-50%, 10px);
+    transform: translate(-50%, 10px);
+  }
+}
+
+@keyframes iconAnimation {
+  0% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+  100% {
+    -webkit-transform: translate(-50%, 10px);
+    transform: translate(-50%, 10px);
+  }
+}
+p {
+  font-family: "Mirza", Verdana, Arial, serif;
+  font-size: 36px;
+  line-height: 1.2em;
+  padding-left: 10px;
+}
+@media (max-width: 767px) {
+  p {
+    font-size: 24px;
+  }
+}
+@media (max-width: 479px) {
+  p {
+    font-size: 20px;
+  }
+}
+
+.xmas {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: none;
+}
+.xmas.view{
+  display: block;
+}
+.xmas .to {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+}
+.xmas .to div {
+  font-family: "quimby-mayoral", sans-serif;
+  color: #ffffff;
+  font-size: 40px;
+  line-height: 0.5em;
+  margin-bottom: 5px;
+}
+.xmas .to .to-name {
+  font-size: 24px;
+}
+.xmas .to .client-logo {
+  display: block;
+  width: auto;
+  max-height: 100px;
+  max-width: 250px;
+  margin: 10px auto 0;
+}
+.xmas .xmas-message {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: calc(90% - 6rem);
+  height: calc(100% - 12rem);
+  margin: 0 auto;
+}
+.xmas .from {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  z-index: 3;
+  text-align: center;
+}
+.xmas .from div {
+  font-family: "quimby-mayoral", sans-serif;
+  color: #ffffff;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+.xmas .from .gc-link {
+  display: inline-block;
+  font-family: "brandon-grotesque", sans-serif;
+  font-size: 24px;
+  color: #ffffff;
+  -webkit-transition: 400ms ease;
+  transition: 400ms ease;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.xmas .from .gc-link:hover {
+  color: #1cff94;
+}
+.xmas #xmas {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+
+/* lights */
+body {
+  /* background-color: #1C1C51;
+  display: flex;
+  font-family: "tamarillo-jf"; */
+}
+
+.card-light{
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+h1 {
+  font-size: 6em;
+  color: white;
+  text-align: center;
+  margin: 25px;
+}
+
+.anim-container {
+  flex: 1;
+}
+
+.vbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.hbox {
+  display: flex;
+  flex-direction: row;
+}
+
+.align-center {
+  justify-content: center;
+}
+
+.switch {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  bottom: 40px;
+  -webkit-animation: iconAnimation 1s infinite alternate ease-in-out;
+  animation: iconAnimation 1s infinite alternate ease-in-out;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  text-align: center;
+  z-index: 2000;
+  display:none;
+}
+.switch.on{
+  opacity: 1;
+  display:block;
+}
+
+.light {
+  opacity: 0.55;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  background-size: 100% 100%;
+}
