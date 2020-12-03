@@ -512,8 +512,8 @@ h1 {
 }
 
 .run.on #moon {
-  height: 50px;
-  width: 50px;
+  height: 20px;
+  width: 20px;
   border-radius: 100%;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
@@ -522,8 +522,8 @@ h1 {
   -webkit-box-shadow: 0px 0px 25px -2px #FFFB00;
   -moz-box-shadow: 0px 0px 25px -2px #FFFB00;
   -ms-box-shadow: 0px 0px 25px -2px #FFFB00;
-  margin-left: 30px;
-  margin-top: 44px;
+  margin-left: 10px;
+  margin-top: 23px;
 }
 
 .run.on #road {
