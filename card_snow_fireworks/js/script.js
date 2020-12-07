@@ -15,7 +15,7 @@ TweenMax.set('.switchnob', {y: '+=90'})
    $tennis.on('click', function() {
 		$('.new').addClass('on');
 		$audioFile2.play();
-		$audioFile2.loop();
+		$audioFile2.loop = true;
 	 });
 	$new.on('click', function() {
 		$(this).removeClass('on');
