@@ -616,9 +616,9 @@ h1 {
 .tennis-ball {
   position: absolute;
   overflow: hidden;
-  height: 5em;
-  width: 5em;
-  top: 16%;
+  height: 3em;
+  width: 3em;
+  bottom: 0;
   left: 16%;
   border-radius: 50%;
   background-color: #cc0;
@@ -635,7 +635,7 @@ h1 {
   display: block;
   height: 100%;
   width: 100%;
-  border: solid 0.5em #fff;
+  border: solid 0.3em #fff;
   border-radius: 50%;
   box-sizing: border-box;
 }
@@ -647,6 +647,20 @@ h1 {
 }
 .new{
   display: none;
+  background: url('../img/natural.jpg') 0 0 no-repeat;
+  z-index: 9999999;
+  position: absolute;
+  overflow: hidden;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.new p{
+  color: #FFF;
+  text-align: center;
+  font-size: 48px
 }
 .new.on{
   display: block;

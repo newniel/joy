@@ -3,6 +3,7 @@ $(document).ready(function() {
   var $clickMe = $('.click-icon'),
 	  $card = $('.card'),
 	  $tennis = $('.tennis-ball'),
+	  $new = $('.new'),
 	  $audioFile = new Audio('./mp3/christmas.mp3');
 	  
   var lightswitch = document.getElementById("switch"), on = false;
@@ -11,9 +12,12 @@ $(document).ready(function() {
 TweenMax.set('.switchnob', {y: '+=90'})
 
    $tennis.on('click', function() {
-		alert("AAA");
 		$('.new').addClass('on');
- 	});
+	 });
+	$new.on('click', function() {
+		$(this).removeClass('on');
+	 });
+	 
   $card.on('click', function() {
 		$(this).toggleClass('is-opened');
     $clickMe.toggleClass('is-hidden');
