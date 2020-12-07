@@ -5,7 +5,8 @@ $(document).ready(function() {
 	  $tennis = $('.tennis-ball'),
 	  $new = $('.new'),
 	  $audioFile = new Audio('./mp3/christmas.mp3');
-	  
+	  $audioFile2 = new Audio('./mp3/a.mp3');
+
   var lightswitch = document.getElementById("switch"), on = false;
   lightswitch.addEventListener('click', toggleLights, false);
 
@@ -13,9 +14,13 @@ TweenMax.set('.switchnob', {y: '+=90'})
 
    $tennis.on('click', function() {
 		$('.new').addClass('on');
+		$audioFile2.play();
+		$audioFile2.loop();
 	 });
 	$new.on('click', function() {
 		$(this).removeClass('on');
+		$audioFile2.pause();
+        $audioFile2.currentTime = 0;
 	 });
 	 
   $card.on('click', function() {
