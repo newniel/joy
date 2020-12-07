@@ -2,6 +2,7 @@
 * {
   box-sizing: border-box;
 }
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 body {
   background-color: #928A97;
@@ -184,6 +185,7 @@ body {
 
 .cart-page-bottom.on .key-name{
   color: #da8078;
+  font-family: 'Nanum Gothic' !important;
 }
 
 .cart-page-inside.on,
@@ -200,6 +202,7 @@ body {
 } */
 .cart-page-inside,
 .cart-page-bottom {
+  font-family: 'Nanum Gothic' !important;
   background-color: #131212;
   border: 20px solid #d4d1d0;
   display: -webkit-box;
@@ -341,6 +344,7 @@ p {
   font-size: 36px;
   line-height: 1.2em;
   padding-left: 10px;
+  color: #131212;
 }
 @media (max-width: 767px) {
   p {
