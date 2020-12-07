@@ -182,7 +182,11 @@ body {
   }
 }
 
+.cart-page-bottom.on .key-name{
+  color: #da8078;
+}
 
+.cart-page-inside.on,
 .cart-page-bottom.on{
   background-color: #61605f;
   background-image: url("https://www.dropbox.com/s/8hw7guch8d151kg/pattern.png?raw=1");
@@ -191,9 +195,9 @@ body {
   color: #FFF;
 }
 
-.cart-page-inside{
+/* .cart-page-inside{
   background: url("../img/Gypsophila1.jpg" ) 0 0 no-repeat !important;
-}
+} */
 .cart-page-inside,
 .cart-page-bottom {
   background-color: #131212;

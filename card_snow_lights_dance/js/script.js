@@ -30,7 +30,7 @@ TweenMax.set('.switchnob', {y: '+=90'})
 	    on = false;
 		TweenMax.to('.light',.2, {filter:'', opacity: 0.55})
 		TweenMax.to('.switchnob',.2, {y: '+=90'})
-		$('.cart-page-bottom').removeClass('on');
+		$('.cart-page-bottom, .cart-page-inside').removeClass('on');
 	  }
 
 	  }
@@ -48,13 +48,13 @@ function toggleLights(){
     on = false;
     TweenMax.to('.light',.2, {filter:'', opacity: 0.55})
 	TweenMax.to('.switchnob',.2, {y: '+=90'})
-	$('.cart-page-bottom').removeClass('on');
+	$('.cart-page-bottom, .cart-page-inside').removeClass('on');
 	$('.run.on').removeClass('on');
   }else{
     TweenMax.to('.switchnob',.2, {y: '-=90'})
     TweenMax.staggerTo('.light', .5, {filter:'url(\'#glow\')', opacity: 1}, .08)
 	on = true;
-	$('.cart-page-bottom').addClass('on');
+	$('.cart-page-bottom, .cart-page-inside').addClass('on');
 	$('.run').addClass('on');
   }
 }
