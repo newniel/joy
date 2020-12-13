@@ -24,6 +24,24 @@ body {
   color: #FFF;
 }
 
+.snowman{
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 9999999;
+  width: 180px;
+}
+
+.snowman span{
+  width: 93px;
+  text-align: center;
+}
+
+.snowman img{
+  width: 50%;
+}
+
+
 .card {
   z-index: 100;
   -webkit-perspective: 1500px;
@@ -674,92 +692,49 @@ h1 {
   left: 0;
 }
 
-.east-egg{
+.xmas-gifts {
   position: absolute;
-  z-index: 99999999;
-  top: 0;
-  left: 0;
-  width: 100vh;
-  height: 100vh;
+  bottom: -41px;
+  left: 176px;
 }
 
-.bg_heart {
+.xmas-gift {
+  border-radius: 4px;
+}
+.xmas-gift::before {
+  content: "";
+  width: 100%;
+  height: 10px;
+  background: yellow;
+  box-shadow: -30px 0 0 0 #d6d600;
+  display: block;
   position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden
+  top: 35px;
 }
-
-.heart {
-  position: absolute;
-  top: -50%;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -m-transform: rotate(-45deg);
-  transform: rotate(-45deg)
-}
-
-.heart:before {
-  position: absolute;
-  top: -50%;
-  left: 0;
-  display: block;
+.xmas-gift::after {
   content: "";
-  width: 100%;
-  height: 100%;
-  background: inherit;
-  border-radius: 100%;
-}
-
-.heart:after {
-  position: absolute;
-  top: 0;
-  right: -50%;
+  width: 10px;
+  height: inherit;
+  background: yellow;
   display: block;
-  content: "";
-  width: 100%;
-  height: 100%;
-  background: inherit;
-  border-radius: 100%;
+  position: relative;
+  top: -10px;
+  margin: auto;
 }
-
-@-webkit-keyframes love {
-0%{top:110%}
+.xmas-gift.square {
+  width: 80px;
+  height: 80px;
+  background: #ff54cf;
+  box-shadow: -30px 0 0 0 #ed00aa;
+  position: relative;
+  z-index: 1;
 }
-@-moz-keyframes love {
-0%{top:110%}
-}
-@-ms-keyframes love {
-0%{top:110%}
-}
-@keyframes love {
-0%{top:110%}
-}
-
-.east-egg{
-  display: none;
-}
-
-.east-egg.on{
-  display: block;
-}
-
-.egg{
-  width: 50px;
-  height: 50px;
-  display: inline-block;
+.xmas-gift.rectangular {
+  width: 60px;
+  height: 120px;
+  background: #0ebeff;
+  box-shadow: -30px 0 0 0 #008dc1;
   position: absolute;
-  bottom: 20px;
-  right: 20px;
-  z-index: 10000000;
-  text-indent: -999999
-}
-
-.tennis-ball span{
-  position: absolute;
-    z-index: 9999999;
-    top: 10px;
-    left: 4px;
+  top: -50px;
+  left: 100px;
 }
