@@ -183,9 +183,20 @@ body {
   }
 }
 
+.key-text{
+  text-align: left;
+}
+
+.text-info{
+  font-size: 13px !important;
+  text-align: left !important;
+  line-height: 27px;
+}
+
 .cart-page-bottom.on .key-name{
   color: #da8078;
   font-family: 'Nanum Gothic' !important;
+  font-size: 14px;
 }
 
 .cart-page-inside.on,
