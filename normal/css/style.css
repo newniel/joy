@@ -29,7 +29,6 @@ body {
   bottom: 10px;
   left: 10px;
   z-index: 9999999;
-  width: 180px;
 }
 
 .snowman span{
@@ -38,7 +37,7 @@ body {
 }
 
 .snowman img{
-  width: 50%;
+  width: 83px;
 }
 
 
@@ -180,6 +179,16 @@ body {
   -webkit-transform: rotateY(-20deg);
   transform: rotateY(-20deg);
   z-index: 2;
+}
+
+.key-text{
+  text-align: left;
+}
+
+.text-info{
+  font-size: 14px !important;
+  text-align: left !important;
+  line-height: 27px;
 }
 
 .cart-page-outside,

@@ -188,6 +188,16 @@ body {
   font-family: 'Nanum Gothic' !important;
 }
 
+.key-text{
+  text-align: left;
+}
+
+.text-info{
+  font-size: 14px !important;
+  text-align: left !important;
+  line-height: 27px;
+}
+
 .cart-page-inside.on,
 .cart-page-bottom.on{
   background-color: #61605f;
