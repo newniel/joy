@@ -6,8 +6,10 @@ $(document).ready(function() {
 	  $new = $('.new'),
 	  $egg = $('.egg'),
 	  $east = $('.east-egg'),
+	  $star = $('.new_star h1'),
 	  $audioFile = new Audio('./mp3/christmas.mp3');
 	  $audioFile2 = new Audio('./mp3/a.mp3');
+	  $audioFile3 = new Audio('./mp3/star.mp3');
 
   var lightswitch = document.getElementById("switch"), on = false;
   lightswitch.addEventListener('click', toggleLights, false);
@@ -29,9 +31,18 @@ TweenMax.set('.switchnob', {y: '+=90'})
 	$new.on('click', function() {
 		$(this).removeClass('on');
 		$audioFile2.pause();
-        $audioFile2.currentTime = 0;
+		$audioFile2.currentTime = 0
+		$('.new_star').addClass('on');
+		$audioFile3.play();
+		$audioFile3.loop = true;
 	 });
 	 
+	 $star.on('click', function() {
+		$('.new_star').removeClass('on');
+		$audioFile3.pause();
+		$audioFile3.currentTime = 0
+	 });
+
   $card.on('click', function() {
 		$(this).toggleClass('is-opened');
     $clickMe.toggleClass('is-hidden');

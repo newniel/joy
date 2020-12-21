@@ -4,6 +4,8 @@
 }
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
+@import 'https://fonts.googleapis.com/css?family=Mountains+of+Christmas';
+
 body {
   background-color: #928A97;
   background-image: url("https://images.pexels.com/photos/257909/pexels-photo-257909.jpeg?fit=crop&w=1920&h=1280");
@@ -773,4 +775,41 @@ h1 {
     z-index: 9999999;
     top: 10px;
     left: 4px;
+}
+
+
+.new_star {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: radial-gradient(at top, #12313b, #000822);
+  overflow: hidden;
+  z-index: 1000000;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.new_star.on{
+  display: block;
+}
+
+canvas {
+  position: absolute;
+}
+
+h1 {
+  position: fixed;
+  margin: 0 auto;
+  bottom: 1em;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: 100;
+  font-family: 'Mountains of Christmas';
+  color: white;
+  text-shadow: 0 0 20px black;
+  opacity: .8;
 }
