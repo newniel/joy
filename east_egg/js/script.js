@@ -44,6 +44,7 @@ TweenMax.set('.switchnob', {y: '+=90'})
 		$('.new_star').removeClass('on');
 		$audioFile3.pause();
 		$audioFile3.currentTime = 0
+		$textfade.fadeIn(4000);
 	 });
 
   $card.on('click', function() {
