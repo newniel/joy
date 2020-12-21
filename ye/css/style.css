@@ -24,6 +24,23 @@ body {
   color: #FFF;
 }
 
+.snowman{
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 9999999;
+}
+
+.snowman span{
+  width: 93px;
+  text-align: center;
+}
+
+.snowman img{
+  width: 83px;
+}
+
+
 .card {
   z-index: 100;
   -webkit-perspective: 1500px;
@@ -164,6 +181,16 @@ body {
   z-index: 2;
 }
 
+.key-text{
+  text-align: left;
+}
+
+.text-info{
+  font-size: 14px !important;
+  text-align: left !important;
+  line-height: 27px;
+}
+
 .cart-page-outside,
 .cart-page-inside {
   position: absolute;
@@ -202,7 +229,7 @@ body {
 } */
 .cart-page-inside,
 .cart-page-bottom {
-  
+  font-family: 'Nanum Gothic' !important;
   background-color: #131212;
   border: 20px solid #d4d1d0;
   display: -webkit-box;
@@ -611,3 +638,112 @@ h1 {
   50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
   100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
 } 
+
+
+.tennis-ball {
+  position: absolute;
+  overflow: hidden;
+  height: 3em;
+  width: 3em;
+  bottom: 0;
+  left: 16%;
+  border-radius: 50%;
+  background-color: #cc0;
+  background: radial-gradient(ellipse at center, #cc0 0%, olive 100%);
+  box-sizing: border-box;
+  -webkit-transform: translate(-50%, -50%) rotate(30deg);
+          transform: translate(-50%, -50%) rotate(30deg);
+  box-shadow: 10px 20px 25px 10px rgba(0, 0, 0, 0.2);
+  z-index: 999999;
+}
+.tennis-ball:before, .tennis-ball:after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+  border: solid 0.3em #fff;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.tennis-ball:before {
+  right: 70%;
+}
+.tennis-ball:after {
+  left: 70%;
+}
+.new{
+  display: none;
+  background: url('../img/natural.jpg') 0 0 no-repeat;
+  z-index: 9999999;
+  position: absolute;
+  overflow: hidden;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.new p{
+  color: #FFF;
+  text-align: center;
+  font-size: 48px
+}
+.new.on{
+  display: block;
+}
+
+#canvas {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.xmas-gifts {
+  position: absolute;
+  bottom: -41px;
+  left: 176px;
+}
+
+.xmas-gift {
+  border-radius: 4px;
+}
+.xmas-gift::before {
+  content: "";
+  width: 100%;
+  height: 10px;
+  background: yellow;
+  box-shadow: -30px 0 0 0 #d6d600;
+  display: block;
+  position: relative;
+  top: 35px;
+}
+.xmas-gift::after {
+  content: "";
+  width: 10px;
+  height: inherit;
+  background: yellow;
+  display: block;
+  position: relative;
+  top: -10px;
+  margin: auto;
+}
+.xmas-gift.square {
+  width: 80px;
+  height: 80px;
+  background: #ff54cf;
+  box-shadow: -30px 0 0 0 #ed00aa;
+  position: relative;
+  z-index: 1;
+}
+.xmas-gift.rectangular {
+  width: 60px;
+  height: 120px;
+  background: #0ebeff;
+  box-shadow: -30px 0 0 0 #008dc1;
+  position: absolute;
+  top: -50px;
+  left: 100px;
+}
