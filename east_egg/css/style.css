@@ -692,8 +692,8 @@ h1 {
   z-index: 99999999;
   top: 0;
   left: 0;
-  width: 100vh;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 .bg_heart {
@@ -795,6 +795,13 @@ h1 {
   display: block;
 }
 
+.new_star p{
+  text-align: center;
+  font-size: 1.1em;
+  color: palegoldenrod;
+}
+
+
 canvas {
   position: absolute;
 }
@@ -806,7 +813,7 @@ h1 {
   left: 0;
   right: 0;
   text-align: center;
-  font-size: 1.4em;
+  font-size: 1.1em;
   font-weight: 100;
   font-family: 'Mountains of Christmas';
   color: white;

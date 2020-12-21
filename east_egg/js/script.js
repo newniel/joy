@@ -7,6 +7,7 @@ $(document).ready(function() {
 	  $egg = $('.egg'),
 	  $east = $('.east-egg'),
 	  $star = $('.new_star h1'),
+	  $textfade = $('.new_star p'),
 	  $audioFile = new Audio('./mp3/christmas.mp3');
 	  $audioFile2 = new Audio('./mp3/a.mp3');
 	  $audioFile3 = new Audio('./mp3/star.mp3');
@@ -14,6 +15,7 @@ $(document).ready(function() {
   var lightswitch = document.getElementById("switch"), on = false;
   lightswitch.addEventListener('click', toggleLights, false);
 
+  
 TweenMax.set('.switchnob', {y: '+=90'})
 
    $egg.on('click', function() {
@@ -35,6 +37,7 @@ TweenMax.set('.switchnob', {y: '+=90'})
 		$('.new_star').addClass('on');
 		$audioFile3.play();
 		$audioFile3.loop = true;
+		$textfade.fadeOut(4000);
 	 });
 	 
 	 $star.on('click', function() {
