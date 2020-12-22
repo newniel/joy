@@ -195,6 +195,14 @@ body {
   line-height: 27px;
 }
 
+.hidden-info{
+  font-size: 14px !important;
+  text-align: left !important;
+  line-height: 27px;
+  display: none;
+}
+
+
 .cart-page-bottom.on .key-name{
   color: #da8078;
   font-family: 'Nanum Gothic' !important;
@@ -673,7 +681,8 @@ h1 {
 .new p{
   color: #FFF;
   text-align: center;
-  font-size: 48px
+  font-size: 48px;
+  margin: 5px;
 }
 .new.on{
   display: block;

@@ -29,11 +29,12 @@ TweenMax.set('.switchnob', {y: '+=90'})
 		$('.new').addClass('on');
 		$audioFile2.play();
 		$audioFile2.loop = true;
+		$('.hidden-info').fadeIn(15000);
 	 });
 	$new.on('click', function() {
 		$(this).removeClass('on');
 		$audioFile2.pause();
-		$audioFile2.currentTime = 0
+		$audioFile2.currentTime = 0;
 		$('.new_star').addClass('on');
 		$audioFile3.play();
 		$audioFile3.loop = true;
