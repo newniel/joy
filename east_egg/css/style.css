@@ -192,13 +192,13 @@ body {
 .text-info{
   font-size: 14px !important;
   text-align: left !important;
-  line-height: 27px;
+  line-height: 22px;
 }
 
 .hidden-info{
   font-size: 14px !important;
   text-align: left !important;
-  line-height: 27px;
+  line-height: 22px;
   display: none;
 }
 
