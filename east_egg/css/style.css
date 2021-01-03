@@ -195,6 +195,15 @@ body {
   line-height: 22px;
 }
 
+.text-info span{
+  color: #FFF !important;
+  font-size:13px !important;
+}
+
+.text-info ul{
+  color: #FFF !important;
+  font-size:13px !important;
+}
 .hidden-info{
   font-size: 14px !important;
   text-align: left !important;
