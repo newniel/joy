@@ -1,519 +1,299 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>test</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
-
-<script>
-  $(document).ready(function(){
-    var tab_link = $(".tab li a");
-		var tab_content = $(".tab_content");
-		tab_link.on('click', function(){
-			var tab_date =  $(this).attr('data-tab');
-			tab_link.removeClass('on');
-			tab_content.removeClass('on');
-			$(this).addClass('on');
-			$("."+tab_date).addClass('on');0
-		});
-  });
-</script>
-
-
-
-<style>
-  /*reset*/
-  html,body,form,div,p,dl,dt,dd,ul,ol,li,fieldset,table,th,td,h1,h2,h3,h4,h5{margin:0;padding:0;}
-  body{line-height:18px;color:#222;word-break:break-all;letter-spacing:-1px;}
-  ul li, ol li {list-style:none;}
-  h2,h3,h4,h5,h6,strong{font-weight:bold;}
-  fieldset {vertical-align:top;border:none;}
-  hr, legend {display:none;}
-  em, address, cite {font-style:normal;}
-  acronym{border:0 none;text-decoration: none;}
-  img{border:none;vertical-align: middle;}
-  table{width:100%;border-collapse:separate;border:0;border-spacing:0;font-size: 13px;}
-  th{border:0;text-align:center}
-  td{border:0}
-  table caption,legend{overflow:hidden;width:100%;height:1px;*height:0px;margin-top:-1px;font-size:0;line-height:0;text-indent:-9999px;}
-  ol,ul{list-style:none;}
-  em, var, address{font-style:normal;}
-  hr, .hidden{position: absolute !important;overflow: hidden !important;margin: -1px !important;border: 0 !important;padding: 0 !important;width: 1px !important;height: 1px !important;clip:rect(0 0 0 0) !important;}
-  a, a:hover, a:active {text-decoration: none;}
-  a:link{color: inherit;}
-
-  html, body{
-    position: relative;
-    height: 100%;
-  }
-  
-  /*iframe*/
-  .cp_embed_wrapper {
-    margin-top: 10px;
-  }
-
-  .h2_title{
-    font-size: 30px;
-    color: #317eac;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-
-  .comp{
-    margin-bottom: 30px;
-  }
-
-  /*버튼*/
-  .btn{
-    height: 48px;
-    padding: 0 30px;
-    border-radius: 3px;
-    font-size: 14px;
-    border: none;
-  }
-  .btn_ok{
-    color: #FFF;
-    background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
-  }
-  .btn_cancel{
-    color: #FFF;
-    background:linear-gradient(45deg, #2196f3 30%, #21cbf3 90%);
-  }
-  .btn_ok:hover, .btn_ok:active{
-    box-shadow: 0 3px 5px 2px rgb(255 105 135 / 30%);
-  }
-  .btn_cancel:hover, .btn_cancel:active{
-    box-shadow: 0 3px 5px 2px rgb(33 150 243 / 30%);
-  }
-  /*정렬*/
-  .txt_ct{
-    text-align: center;
-  }
-  /*checkbox*/
-  .check_box label{
-    position: relative;
-  }
-  .check_box label input{
-    opacity: 0;
-  }
-  .check_box label .svg{
-    position: absolute;
-    top: calc(50% - 12px);
-    left: 0;
-    width: 24px;
-    height: 24px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden='true'%3E%3Cpath d='M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z'%3E%3C/path%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-  }
-  .check_box label input:checked + .svg{
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='MuiSvgIcon-root' focusable='false' viewBox='0 0 24 24' aria-hidden='true'%3E%3Cpath d='M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'%3E%3C/path%3E%3C/svg%3E");
-  }
-  .check_box label input:disabled ~ .svg{
-    background: #ced9e080;
-    width: 20px;
-    height: 20px;
-    top: calc(50% - 10px);
-  }
-  .check_box label input:disabled ~ .text{
-    color: #ccc;
-  }
-
-  /*ridio*/
-  .radio_box label{
-    position: relative;
-  }
-  .radio_box label input{
-    opacity: 0;
-  }
-  .radio_box label .svg{
-    position: absolute;
-    top: calc(50% - 12px);
-    left: 0;
-    width: 24px;
-    height: 24px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='MuiSvgIcon-root' focusable='false' viewBox='0 0 24 24' aria-hidden='true'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'%3E%3C/path%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-  }
-  .radio_box label input:checked + .svg{
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='MuiSvgIcon-root' focusable='false' viewBox='0 0 24 24' aria-hidden='true'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'%3E%3C/path%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='MuiSvgIcon-root jss66' focusable='false' viewBox='0 0 24 24' aria-hidden='true'%3E%3Cpath d='M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z'%3E%3C/path%3E%3C/svg%3E");
-  }
-  .radio_box label input:disabled ~ .svg{
-    background: #ced9e080;
-    width: 20px;
-    height: 20px;
-    top: calc(50% - 10px);
-    border-radius: 50%;
-  }
-  .radio_box label input:disabled ~ .text{
-    color: #ccc;
-  }
-  /*table*/
-  table{
-    border-top: 1px solid #444;
-  }
-  table thead tr th{
-    background: #f5fafd;
-    padding: 19px 0;
-    font-size: 14px;
-    color: #222;
-    letter-spacing: 0.5px;
-    border-right: 1px solid #e0e0e0;
-    border-bottom: 1px solid #bdbdbd;
-    box-sizing: border-box;
-    font-weight: bold;
-    }
-    table thead tr th:first-child, table tbody tr th:first-child, table tfoot tr th:first-child{
-      border-right: 1px solid #bdbdbd;
-      font-weight: bold;
-    }
-    table tbody tr:first-child th, table tbody tr:first-child td{
-      border-top: none;
-    }
-    table thead tr th:last-child, table tbody tr th:last-child{
-      border-right: none;
-    }
-    table tbody tr th, table tbody tr td{
-      border-top: 1px solid #e0e0e0;
-      border-right: 1px solid #e0e0e0;
-      padding: 18px 16px;
-      box-sizing: border-box;
-    }
-    table tbody tr td, table tfoot tr td{
-      text-align: right;
-    }
-    table tbody tr td:last-child, table tfoot tr td:last-child{
-      border-right: none;
-    }
-    
-    table tfoot tr th, table tfoot tr td{
-      background: #f5f5f5;
-      border-top: 1px solid #444;
-      border-right: 1px solid #e0e0e0;
-      border-bottom: 1px solid #bdbdbd;
-      box-sizing: border-box;
-      padding: 18px 16px;
-    }
-  /*tab*/
-  .tab{
-    width: 100%;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-  .tab li{
-    position: relative;
-    width: calc(100%/3);
-    float: left;
-    border-right: 1px solid #ddd;
-    box-sizing: border-box;
-  }
-  .tab li a.on::after{
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transition: all 250ms ease-in-out;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(70deg,#0ebeff,#ffdd40,#ae63e4,#47cf73);
-  }
-  .tab li:last-child{
-    border-right: 0;
-  }
-  .tab li a{
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    padding: 16px 10px;
-    box-sizing: border-box;
-  }
-  .tab li a:hover, .tab li a:active{
-    color:#f36363;
-  }
-  .tab_content{
-    display: none;
-  }
-  .tab_content.on{
-    display: inherit;
-  }
-
-
-  .swiper-container {
-    width: 100%;
-    height: 100%;
-  }
-
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-    height: 400px;
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-  }
-
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .swiper-pagination{
-    bottom: 18px !important;
-  }
-
-  .swiper-pagination-bullet {
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    line-height: 20px;
-    font-size: 12px;
-    color: #000;
-    opacity: 1;
-    background: rgba(0, 0, 0, 0.2);
-  }
-
-  .swiper-pagination-bullet-active {
-    color: #fff;
-    background: #007aff;
-  }
-
-  .swiper-button-prev span, .swiper-button-next span{
-    text-indent: -9999px;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <title>Document</title>
+    <style>
+        body{display:flex;justify-items:center;align-items:center;height:100vh;margin:0 10px;background:linear-gradient(123deg, #FF8B20 67.91%, #FFB800 100%)}
+        .fr{display:flex;flex-wrap:wrap;}
+        .fr label{display:flex;margin:10px 0;}
+        .fr input[type='text']{width:100%;box-sizing:border-box;padding:6px;}
+        .fr button{display:flex;margin-top:10px;width:100%;text-align:center;padding:10px; background-color:#6E64F0;border:none;color:#FFF;}
+        .fr button span{width:100%;text-align:center;}
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .dog {
+            width: 160px;
+            height: 186px;
+            position: relative;
+        }
+        @keyframes head {
+            0% {
+                transform: rotate(0deg);
+            }
+            30% {
+                transform: rotate(0deg);
+            }
+            40% {
+                transform: rotate(-20deg);
+            }
+            80% {
+                transform: rotate(-20deg);
+            }
+            90% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+        .dog-head {
+            width: 100px;
+        height: 90px;
+        position: absolute;
+            z-index: 5;
+        top: 30px;
+        left: calc(50% - 50px);
+        background-color: #efc092;
+        border-radius: 50%;
+            animation: head 6s linear infinite;
+        }
+        .dog-head:before,
+        .dog-head:after {
+        content: "";
+        width: 79px;
+        height: 50px;
+        position: absolute;
+        z-index: 5;
+        top: 44px;
+        background-color: #efc092;
+        border-radius: 50%;
+        }
+        .dog-head:before {
+        left: -7px;
+        transform: rotate(50deg);
+        }
+        .dog-head:after {
+        right: -7px;
+        transform: rotate(-49deg);
+        }
+        .dog-mouth {
+            width: 60px;
+        height: 35px;
+        background-color: #fee2d2;
+        position: absolute;
+        bottom: -15px;
+        left: 20px;
+        z-index: 10;
+        border-radius: 50%;
+        }
+        .dog-mouth:after {
+            content: "";
+            width: 10px;
+        height: 40px;
+        background-color: #fee2d2;
+        position: absolute;
+        bottom: 30px;
+        left: 24px;
+        z-index: 10;
+        border-radius: 20px;
+        }
+        .dog-nose {
+            width: 16px;
+            height: 10px;
+            position: absolute;
+            top: 8px;
+            left: calc(50% - 8px);
+            background-color: #000;
+            border-radius: 50%;
+        }
+        @keyframes tongue {
+            0% {
+                height: 10px;
+            }
+            30% {
+                height: 10px;
+            }
+            40% {
+                height: 20px;
+            }
+            60% {
+                height: 10px;
+            }
+            80% {
+                height: 20px;
+            }
+            90% {
+                height: 10px;
+            }
+            100% {
+                height: 10px;
+            }
+        }
+        .dog-tongue {
+        width: 20px;
+        height: 10px;
+        position: absolute;
+        top: 24px;
+        left: calc(50% - 10px);
+        background-color: #f4a4ad;
+        border-radius: 0 0 10px 10px;
+            animation: tongue 4s linear infinite;
+        }
+        .dog-eyes {
+            width: 10px;
+        height: 16px;
+        background-color: #000;
+        position: absolute;
+        top: 52px;
+        left: 28px;
+        border-radius: 50%;
+        z-index: 10;
+        box-shadow: 33px 0px 0px #000;
+        }
+        .dog-eyes:after {
+        content: "";
+        width: 92px;
+        height: 50px;
+        position: absolute;
+        top: -50px;
+        left: -24px;
+        background-color: #efc092;
+        border-radius: 50%;
+        }
+        .dog-ears {
+        width: 80px;
+            height: 50px;
+            position: absolute;
+            z-index: 0;
+            top: -2px;
+            border-radius: 150px 0 150px 0;
+            background-color: #efc092;
+        }
+        .dog-ears:after {
+            content: "";
+        width: 50px;
+            height: 30px;
+            position: absolute;
+            z-index: 0;
+            top: 8px;
+            left: 20px;
+            border-radius: 150px 0 150px 0;
+            transform: rotate(-176deg);
+            background-color: #fee2d2;
+        }
+        .ears-left {
+            left: -22px;
+            transform: rotate(-105deg);
+        }
+        .ears-right {
+            right: -22px;
+            transform: rotate(-22deg);
+        }
+        .dog-body {
+        width: 54px;
+        height: 60px;
+        position: absolute;
+        top: 120px;
+        left: calc(50% - 35px);
+        background-color: #d58b4e;
+        border-radius: 49px 0 0 20px;
+        }
+        .dog-body:before {
+        content: "";
+        width: 50px;
+        height: 60px;
+        position: absolute;
+        top: 3px;
+        left: calc(50% - 17px);
+        background-color: #efbf8e;
+        border-radius: 100px 100px 0 0;
+        }
+        .dog-body:after {
+        content: "";
+        width: 15px;
+        height: 30px;
+        position: absolute;
+        top: 32px;
+        left: 28px;
+        background-color: #d58b4e;
+        border-radius: 100px 100px 0 0;
+        }
+        .dog-foot {
+            width: 20px;
+        height: 13px;
+        position: absolute;
+        z-index: 5;
+        bottom: -3px;
+        left: 8px;
+        background-color: #fce2d3;
+        border-radius: 10px 10px 0 0;
+            box-shadow: 33px 0 0 #fce2d3;
+        }
+        @keyframes tail {
+            0% {
+            transform: rotate(-47deg);
+            }
+            100% {
+            transform: rotate(-57deg);
+            }
+        }
+        .dog-tail {
+            width: 10px;
+        height: 50px;
+        position: absolute;
+        top: 120px;
+        left: calc(50% - 45px);
+        background-color: #ecc093;
+        transform: rotate(-47deg);
+        border-radius: 10px 0 0 0px / 50px 0 0 0px;
+            animation: tail .08s infinite alternate;
+        }
+        .ball {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            bottom: 0;
+            right: 0px;
+            border-radius: 50%;
+            background-color: #6E64F0;
+        }
+    </style>
+    <script>
+        function getTextValue(){
+            var txObj = document.getElementsByName("co");
+           
+            if(txObj[0].value == '코코'){
+                alert('추카~~~');
+                location.href="main2.html"
+            }else{
+                alert('땡땡땡!');
+            }
+        }
+    </script>
 </head>
 <body>
-  <h2 class="h2_title">✨Swiper</h2>
-  <div class="comp">
-    <!-- Swiper -->
-    <div class="swiper-container mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://swiperjs.com/demos/images/nature-1.jpg" /></div>
-        <div class="swiper-slide"><img src="https://swiperjs.com/demos/images/nature-2.jpg" /></div>
-        <div class="swiper-slide"><img src="https://swiperjs.com/demos/images/nature-3.jpg" /></div>
-        <div class="swiper-slide"><img src="https://swiperjs.com/demos/images/nature-4.jpg" /></div>
-        <div class="swiper-slide"><img src="https://swiperjs.com/demos/images/nature-5.jpg" /></div>
-        <div class="swiper-slide"><img src="https://swiperjs.com/demos/images/nature-6.jpg" /></div>
-        <div class="swiper-slide"><img src="https://swiperjs.com/demos/images/nature-7.jpg" /></div>
-        <div class="swiper-slide"><img src="https://swiperjs.com/demos/images/nature-8.jpg" /></div>
-      </div>
-      <div class="swiper-button-prev">
-        <span>prev</span>
-      </div>
-      <div class="swiper-button-next">
-        <span>next</span>
-      </div>
-      <div class="swiper-pagination"></div>
+    <div class="fr">
+        <div class="container">
+            <div class="dog">
+                <div class="dog-head">
+                    <div class="dog-ears ears-left"></div>
+                    <div class="dog-ears ears-right"></div>
+                    <div class="dog-eyes"></div>
+                    <div class="dog-mouth">
+                        <div class="dog-nose"></div>
+                        <div class="dog-tongue"></div>
+                    </div>
+                </div>
+                <div class="dog-tail"></div>
+                <div class="dog-body">
+                    <div class="dog-foot"></div>
+                </div>
+                <div class="ball"></div>
+            </div>
+        </div>
+        <label for="co">암호를 입력하시오(한글로 입력하시오).</label>
+        <input id="co" type="text" name="co" placeholder="강아지 이름을 한글로 쓰시오." maxlength="2">
+        <button type="button" onClick="getTextValue()">
+            <span>확인</span>
+        </button>
     </div>
-    <p class="codepen" data-height="500" data-theme-id="block" data-default-tab="html,result" data-user="codeniel" data-slug-hash="RwpJaPj" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="RwpJaPj">
-      <span>See the Pen <a href="https://codepen.io/codeniel/pen/RwpJaPj">
-      RwpJaPj</a> by oh taek kwon (<a href="https://codepen.io/codeniel">@codeniel</a>)
-      on <a href="https://codepen.io">CodePen</a>.</span>
-    </p>
-    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-  </div>
-  <h2 class="h2_title">✨button</h2>
-  <div class="comp">
-    <div class="txt_ct">
-      <button type="button" class="btn btn_ok">확인</button>
-      <button type="button" class="btn btn_cancel">취소</button>
-    </div>
-    <p class="codepen" data-height="300" data-theme-id="block" data-default-tab="css,result" data-user="codeniel" data-slug-hash="RwpJrJp" style="background-color: #000 !important; height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="button">
-      <span>See the Pen <a href="https://codepen.io/codeniel/pen/RwpJrJp">
-      button</a> by oh taek kwon (<a href="https://codepen.io/codeniel">@codeniel</a>)
-      on <a href="https://codepen.io">CodePen</a>.</span>
-    </p>
-    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-  </div>
-  <h2 class="h2_title">✨checkbox</h2>
-  <div class="comp">
-    <div class="check_box">
-      <label>
-        <input type="checkbox" checked>
-        <span class="svg"></span>
-        <span class="text">봄</span>
-      </label>
-      <label>
-        <input type="checkbox">
-        <span class="svg"></span>
-        <span class="text">여름</span>
-      </label>
-      <label>
-        <input type="checkbox">
-        <span class="svg"></span>
-        <span class="text">가을</span>
-      </label>
-      <label>
-        <input type="checkbox" disabled>
-        <span class="svg"></span>
-        <span class="text">겨울</span>
-      </label>
-    </div>
-    <p class="codepen" data-height="300" data-theme-id="block" data-default-tab="css,result" data-user="codeniel" data-slug-hash="yLMEeWr" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="checkbox">
-      <span>See the Pen <a href="https://codepen.io/codeniel/pen/yLMEeWr">
-      checkbox</a> by oh taek kwon (<a href="https://codepen.io/codeniel">@codeniel</a>)
-      on <a href="https://codepen.io">CodePen</a>.</span>
-    </p>
-    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-  </div>
-  <h2 class="h2_title">✨radio</h2>
-  <div class="comp">
-    <div class="radio_box">
-      <label>
-        <input type="radio" name="season" checked>
-        <span class="svg"></span>
-        <span class="text">봄</span>
-      </label>
-      <label>
-        <input type="radio" name="season">
-        <span class="svg"></span>
-        <span class="text">여름</span>
-      </label>
-      <label>
-        <input type="radio" name="season">
-        <span class="svg"></span>
-        <span class="text">가을</span>
-      </label>
-      <label>
-        <input type="radio" name="season" disabled>
-        <span class="svg"></span>
-        <span class="text">겨울</span>
-      </label>
-    </div>
-    <p class="codepen" data-height="300" data-theme-id="block" data-default-tab="css,result" data-user="codeniel" data-slug-hash="JjWZGgK" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="radio">
-      <span>See the Pen <a href="https://codepen.io/codeniel/pen/JjWZGgK">
-      radio</a> by oh taek kwon (<a href="https://codepen.io/codeniel">@codeniel</a>)
-      on <a href="https://codepen.io">CodePen</a>.</span>
-    </p>
-    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-  </div>
-  <h2 class="h2_title">✨table</h2>
-  <div class="comp">
-    <table>
-      <caption>상품유형, 투자손익, 수익률(%), 잔고, 비중(%), 정보 테이블</caption>
-      <colgroup>
-        <col width="13%">
-        <col width="27%">
-        <col width="20%">
-        <col width="27%">
-        <col width="13%">
-      </colgroup>
-      <thead>
-        <tr>
-          <th scope="col">상품유형</th>
-          <th scope="col">투자손익</th>
-          <th scope="col">수익률(%)</th>
-          <th scope="col">잔고</th>
-          <th scope="col">비중(%)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">금융상품</th>
-          <td>120,000</td>
-          <td>20%</td>
-          <td>120,000,000</td>
-          <td>36.3%</td>
-        </tr>
-        <tr>
-          <th scope="row">주식</th>
-          <td>120,000</td>
-          <td>20%</td>
-          <td>120,000,000</td>
-          <td>36.3%</td>
-        </tr>
-        <tr>
-          <th scope="row">해외주식</th>
-          <td>120,000</td>
-          <td>20%</td>
-          <td>120,000,000</td>
-          <td>36.3%</td>
-        </tr>
-        <tr>
-          <th scope="row">선물옵션</th>
-          <td>120,000</td>
-          <td>20%</td>
-          <td>120,000,000</td>
-          <td>36.3%</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <th scope="row">전체</th>
-          <td>120,000</td>
-          <td>20%</td>
-          <td>120,000,000</td>
-          <td>36.3%</td>
-        </tr>
-      </tfoot>
-    </table>
-    <p class="codepen" data-height="300" data-theme-id="block" data-default-tab="css,result" data-user="codeniel" data-slug-hash="MWpXKNM" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="table">
-      <span>See the Pen <a href="https://codepen.io/codeniel/pen/MWpXKNM">
-      table</a> by oh taek kwon (<a href="https://codepen.io/codeniel">@codeniel</a>)
-      on <a href="https://codepen.io">CodePen</a>.</span>
-    </p>
-    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-  </div>
-  <h2 class="h2_title">✨tab</h2>
-  <div class="comp">
-    <div class="tab_box">
-      <ul class="tab">
-        <li><a class="on" data-tab="tab01" href="javascript:;">tab01</a></li>
-        <li><a data-tab="tab02" href="javascript:;">tab02</a></li>
-        <li><a data-tab="tab03" href="javascript:;">tab03</a></li>
-      </ul>
-      <div class="tab_content on tab01">
-        <strong>tab01</strong>  
-      </div>
-      <div class="tab_content tab02">
-        <strong>tab02</strong>  
-      </div>
-      <div class="tab_content tab03">
-        <strong>tab03</strong>  
-      </div>
-    </div>
-    <p class="codepen" data-height="300" data-theme-id="block" data-default-tab="css,result" data-user="codeniel" data-slug-hash="JjWZXjK" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="tab">
-      <span>See the Pen <a href="https://codepen.io/codeniel/pen/JjWZXjK">
-      tab</a> by oh taek kwon (<a href="https://codepen.io/codeniel">@codeniel</a>)
-      on <a href="https://codepen.io">CodePen</a>.</span>
-    </p>
-    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-  </div>
-  
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <script>
-    var swiper = new Swiper(".mySwiper", {
-      loop: true,
-      autoplay: {
-        delay: 1500,
-        disableOnInteraction : false
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-      }
-    });
-  </script>
 </body>
 </html>
