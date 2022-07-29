@@ -9,7 +9,7 @@
         body{display:flex;justify-items:center;align-items:center;height:100vh;margin:0 10px;background:linear-gradient(123deg, #FF8B20 67.91%, #FFB800 100%)}
         .fr{display:flex;flex-wrap:wrap;}
         .fr label{display:flex;margin:10px 0;}
-        .fr input[type='text']{width:100%;box-sizing:border-box;padding:6px;}
+        .fr input[type='text']{width:100%;box-sizing:border-box;padding:12px;}
         .fr button{display:flex;margin-top:10px;width:100%;text-align:center;padding:10px; background-color:#6E64F0;border:none;color:#FFF;}
         .fr button span{width:100%;text-align:center;}
         .container {
@@ -261,10 +261,10 @@
             var txObj = document.getElementsByName("co");
            
             if(txObj[0].value == '코코'){
-                alert('추카~~~');
+                alert('우산을 빌려주셔서 집에 잘갔어요~');
                 location.href="main2.html"
             }else{
-                alert('땡땡땡!');
+                alert('으르렁 으르렁!');
             }
         }
     </script>
@@ -291,7 +291,7 @@
         </div>
         <label for="co">암호를 입력하시오(한글로 입력하시오).</label>
         <input id="co" type="text" name="co" placeholder="강아지 이름을 한글로 쓰시오." maxlength="2">
-        <button type="button" onClick="getTextValue()">
+        <button type="submit" onClick="getTextValue()">
             <span>확인</span>
         </button>
     </div>
