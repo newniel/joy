@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+        }
+        body{
+            margin: 0;
+        }
+        .dark{
+            height:100vh;
+            background:linear-gradient(180deg, rgba(1,1,8,1) 0%, rgba(9,9,121,1) 89%);;
+            background:url('http://upload.wikimedia.org/wikipedia/commons/5/51/Night-sky-milky-way-galaxy-astrophotography_-_West_Virginia_-_ForestWander.jpg') no-repeat #000;
+            background-size: cover;
+        }
+        .traLight{
+            position:absolute;
+            bottom:0;
+            left: 20px;
+            background-color:#080403;
+        }
+        .traLight .light{
+            width: 100px;
+            height: 34px;
+            position:absolute;
+            left:40px;
+            background-color:#4c4d4f;
+            border: 2px solid #080403;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 4px;
+        }
+        .traLight .light span{
+            display: inline-block;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: 1px solid #080403;
+        }
+        .traLight .light .green{
+            background-color:#aaed09;
+            opacity: 0.3;
+            animation:on 2s 1s infinite;
+        }
+        .traLight .light .yellow{
+            background-color:#ffda44;
+        }
+        .traLight .light .red{
+            background-color:#d80027;
+            opacity: 0.3;
+            animation:on2 2s 2s infinite;
+        }
+        @keyframes on {
+            0%{
+                opacity: 0.3;
+            }
+            50%{
+                opacity: 1;
+            }
+            100%{
+                opacity: 0.3;
+            }
+        }
+        @keyframes on2 {
+            0%{
+                opacity: 0.3;
+            }
+            50%{
+                opacity: 1;
+            }
+            100%{
+                opacity: 0.3;
+            }
+        }
+
+
+        .traLight .bar{
+            width: 10px;
+            height: 250px;
+            background-color:#4c4d4f;
+            border: 2px solid #080403;
+        }
+        .traLight .bar::before{
+            content: '';
+            width: 40px;
+            height: 10px;
+            background-color:#4c4d4f;
+            display:inline-block;
+            margin-top: 13px;
+        }
+        .moon {
+            height: 30px;
+            width: 30px;
+            margin: 0 auto;
+            position: absolute;
+            top:1px;
+            -webkit-clip-path: circle(50px at center);
+            clip-path: circle(50px, 50px, 50px);
+            clip-path: circle(50px at center);
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            background: #ffce44;
+            overflow: hidden;
+            }
+            .moon:before, .moon:after {
+            border-radius: 50%;
+            content: "";
+            position: absolute;
+            top: -4%;
+            left: -4%;
+            height: 108%;
+            width: 108%;
+            }
+            .moon:before {
+            background: #04162E;
+            -moz-box-shadow: inset -10px 0 7px 0px #B5BCC6;
+            -webkit-box-shadow: inset -10px 0 7px 0px #B5BCC6;
+            box-shadow: inset -10px 0 7px 0px #B5BCC6;
+            }
+            .moon:after {
+            background: #ffce44;
+            -moz-box-shadow: inset -10px 0 7px 0px #B5BCC6;
+            -webkit-box-shadow: inset -10px 0 7px 0px #B5BCC6;
+            box-shadow: inset -10px 0 7px 0px #B5BCC6;
+            }
+
+            /* Animation */
+            @keyframes before-fullmoon {
+            0%, 50% {
+                opacity: 1;
+            }
+            50.01%, 100% {
+                opacity: 0;
+            }
+            0%, 24.99% {
+                background: #04162E;
+            }
+            25%, 100% {
+                background: #ffce44;
+            }
+            0% {
+                -moz-box-shadow: inset 0px 0 7px 0px #ffce44;
+                -webkit-box-shadow: inset 0px 0 7px 0px #ffce44;
+                box-shadow: inset 0px 0 7px 0px #ffce44;
+            }
+            24.99% {
+                -moz-box-shadow: inset 55px 0 7px 0px #ffce44;
+                -webkit-box-shadow: inset 55px 0 7px 0px #ffce44;
+                box-shadow: inset 55px 0 7px 0px #ffce44;
+            }
+            25% {
+                -moz-box-shadow: inset 55px 0 7px 0px #04162E;
+                -webkit-box-shadow: inset 55px 0 7px 0px #04162E;
+                box-shadow: inset 55px 0 7px 0px #04162E;
+            }
+            50%, 100% {
+                -moz-box-shadow: inset 0 0 7px 0px #04162E;
+                -webkit-box-shadow: inset 0 0 7px 0px #04162E;
+                box-shadow: inset 0 0 7px 0px #04162E;
+            }
+            0%, 50%, 100% {
+                -moz-border-radius: 50%;
+                -webkit-border-radius: 50%;
+                border-radius: 50%;
+            }
+            20%, 30% {
+                -moz-border-radius: 10% 10% 10% 10%/50% 50% 50% 50%;
+                -webkit-border-radius: 10%;
+                border-radius: 10% 10% 10% 10%/50% 50% 50% 50%;
+            }
+            25% {
+                -moz-border-radius: 0;
+                -webkit-border-radius: 0;
+                border-radius: 0;
+            }
+            0%, 24.99% {
+                -moz-transform: rotate(0);
+                -ms-transform: rotate(0);
+                -webkit-transform: rotate(0);
+                transform: rotate(0);
+            }
+            25%, 50%, 100% {
+                -moz-transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+                -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
+            }
+            }
+            @keyframes after-fullmoon {
+            0%, 50% {
+                opacity: 0;
+            }
+            50.01%, 100% {
+                opacity: 1;
+            }
+            0%, 50%, 74.99% {
+                background: #ffce44;
+            }
+            75%, 100% {
+                background: #04162E;
+            }
+            0%, 50% {
+                -moz-box-shadow: inset 0px 0 7px 0px #04162E;
+                -webkit-box-shadow: inset 0px 0 7px 0px #04162E;
+                box-shadow: inset 0px 0 7px 0px #04162E;
+            }
+            74.99% {
+                -moz-box-shadow: inset 55px 0 7px 0px #04162E;
+                -webkit-box-shadow: inset 55px 0 7px 0px #04162E;
+                box-shadow: inset 55px 0 7px 0px #04162E;
+            }
+            75% {
+                -moz-box-shadow: inset 55px 0 7px 0px #ffce44;
+                -webkit-box-shadow: inset 55px 0 7px 0px #ffce44;
+                box-shadow: inset 55px 0 7px 0px #ffce44;
+            }
+            100% {
+                -moz-box-shadow: inset 0 0 7px 0px #ffce44;
+                -webkit-box-shadow: inset 0 0 7px 0px #ffce44;
+                box-shadow: inset 0 0 7px 0px #ffce44;
+            }
+            0%, 50%, 100% {
+                -moz-border-radius: 50%;
+                -webkit-border-radius: 50%;
+                border-radius: 50%;
+            }
+            70%, 80% {
+                -moz-border-radius: 10% 10% 10% 10%/50% 50% 50% 50%;
+                -webkit-border-radius: 10%;
+                border-radius: 10% 10% 10% 10%/50% 50% 50% 50%;
+            }
+            75% {
+                -moz-border-radius: 0;
+                -webkit-border-radius: 0;
+                border-radius: 0;
+            }
+            0%, 50%, 74.99% {
+                -moz-transform: rotate(0);
+                -ms-transform: rotate(0);
+                -webkit-transform: rotate(0);
+                transform: rotate(0);
+            }
+            75%, 100% {
+                -moz-transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+                -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
+            }
+            }
+            .moon:before {
+            -moz-animation: before-fullmoon linear 5s infinite;
+            -webkit-animation: before-fullmoon linear 5s infinite;
+            animation: before-fullmoon linear 5s infinite;
+            }
+            .moon:after {
+            -moz-animation: after-fullmoon linear 5s infinite;
+            -webkit-animation: after-fullmoon linear 5s infinite;
+            animation: after-fullmoon linear 5s infinite;
+            }
+            .moon.on{
+                width: 60px;
+                height: 60px;
+                right: 10px;
+                top:10px;
+            }
+    </style>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <div class="dark">
+        <div class="traLight">
+            <div class="light">
+                <span class="red"></span>
+                <span class="yellow"></span>
+                <span class="green"></span>
+                <div class="moon">
+                </div>
+            </div>
+            <div class="bar"></div>
+        </div>
+        <div class="moon on">
+        </div>
+    </div>
+</body>
+</html>
