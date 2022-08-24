@@ -13,16 +13,72 @@
         body{margin: 0; }
         .main{display: flex; flex-direction: column; align-content: center; align-items: center; justify-content: center; width: 100vw; height: 100vh; background-color: #ab9d92;}
         .main .img{display: flex;}
-        .main .img img{width: 200px;}
-        .main button{margin-top:20px; width: 130px; height: 40px; background-color:#ab9d92;  color: #fff; border: 1px solid #FFF;} 
+        .main .img img{width:200px;animation: logo 1.5s forwards; transform: rotate(180deg);}
+        @keyframes logo{
+            0% {
+                transform: rotate(180deg);
+            }
+            50%{
+                transform: rotate(0deg);
+            }
+            70%{
+                transform: rotate(20deg);
+            }
+            100%{
+                transform: rotate(0deg);
+            }
+        }
+        .main button{position:relative;margin-top:20px; width: 130px; height: 40px; background-color:#ab9d92;  color: #fff; border: none; overflow: hidden; box-sizing: border-box;}
+        .main button span:nth-child(1){position: absolute; top:0; left: -100%; display: block; width:100%;height:1px;background:linear-gradient(90deg, transparent, #FFF);animation: btn-anim1 1s linear infinite;}
+        .main button span:nth-child(2){position: absolute; top: -100%; right:0; display: block; width:1px;height:100%;background:linear-gradient(90deg, transparent, #FFF);animation: btn-anim2 1s linear infinite; animation-delay: .25s;}
+        .main button span:nth-child(3){position: absolute; bottom:0; right: -100%; display: block; width:100%;height:1px;background:linear-gradient(90deg, transparent, #FFF);animation: btn-anim3 1s linear infinite; animation-delay: .5s;}
+        .main button span:nth-child(4){position: absolute; left:0; bottom: -100%; display: block; width:1px;height:100%;background:linear-gradient(90deg, transparent, #FFF);animation: btn-anim4 1s linear infinite; animation-delay: .75s;}
+        @keyframes btn-anim1 {
+            0% {
+                left: -100%;
+            }
+            50%,100% {
+                left: 100%;
+            }
+        }
+        @keyframes btn-anim2 {
+            0% {
+                top: -100%;
+            }
+            50%,100% {
+                top: 100%;
+            }
+        }
+        @keyframes btn-anim3 {
+            0% {
+                right: -100%;
+            }
+            50%,100% {
+                right: 100%;
+            }
+        }
+        @keyframes btn-anim4 {
+            0% {
+                bottom: -100%;
+            }
+            50%,100% {
+                bottom: 100%;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="main">
         <div class="img">
-            <img src="art_img/paletteNu.jpeg" alt=""/>
+            <img src="/art_img/paletteNu.jfif" alt=""/>
         </div>
-        <button type="button" onclick="location.href='party3.html'";>INVITATION</button>
+        <button type="button" onclick="location.href='art3.html'";>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            INVITATION
+        </button>
     </div>
 </body>
 </html>

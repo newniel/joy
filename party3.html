@@ -8,8 +8,115 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital@1&family=Noto+Sans+KR&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+      $(function () {
+        popType.init();
+      });
+      var popType = {
+        basic:function(ths){
+            popup = ths;
+            lock = $('html');
+            popupW = $('.popWrap');
+            popupOpen = $('.nowOpen');
+            popupClose = $('.btnIco-close');
+            popupId = $(ths);
+            wrap = $('.wrapper');
+            btnThis = $(this);
+            popupfocus = $(ths);
+        },
+        height:function(){
+            var popWrap = $('.popWrap.layer'),
+                popH = popWrap.find('.popHead').innerHeight();
+                popWrap.find('.popBody').css('padding-top', popH);
+        },
+        open:function(ths){
+            popType.basic(ths);
+            $(popupId).addClass('nowOpen').attr('tabindex', '0').focus();
+            if($(popupId).hasClass('bottom') || $(popupId).hasClass('layer') || $(popupId).hasClass('count')){
+                $(popupId).css('z-index', '9998');
+            }else if($(popupId).hasClass('popDim')){
+                $(popupId).css('z-index', '9997');
+            }else if($(popupId).hasClass('full')){
+              var fullIdx = $('.full').css('z-index');
+                $('.full').css('z-index', Number(fullIdx) + 1);
+            }else{
+                $(popupId).css('z-index', '999');
+            }
+            var popBt = $(popupId).hasClass('bottom');
+            wrap.attr('aria-hidden','true');
+            lock.addClass('lock');
+            var btnOn = $(popupId).find('.popup .btnArea');
+            popType.height();
+    
+    
+            if(btnOn.length <= 0){
+                $(popupId).addClass('noneBtn');
+            }else{
+                $(popupId).removeClass('noneBtn');
+            }
+    
+            //bottom일때
+            if(popBt){
+                $(popupId).attr('aria-hidden', 'false');
+            }else{
+                $(popupId).attr('aria-hidden', 'true');
+            }
+          
+        },
+        close:function(tar){
+            var isLock = tar.closest('html').hasClass('lock');
+            if(tar.hasClass('nowOpen')){
+                tar.removeClass('nowOpen').removeAttr().focus();
+                tar.css('z-index', '');
+                $(popupId).attr('aria-hidden', 'false');
+                lock.removeClass('lock');
+                wrap.attr('aria-hidden','false');
+                $('.popWrap.bottom').attr('tabindex', '-1');
+    
+                var isLock = $('html .nowOpen').length;
+                if(isLock){
+                    lock.addClass('lock');
+                }
+                if(tar.attr('id').indexOf('popFull') > -1){
+                    $('#' + tar.attr('id')).remove();
+                }
+            }
+        },
+        init:function(ths){
+            $('.popWrap').find('.popup').attr('role','dialog');
+            $('.popWrap.alert').find('.popup').attr('role','alertdialog');
+            $('.popWrap.bottom').attr({
+                'tabindex': '-1',
+                'aria-hidden': 'true'
+            });
+    
+            $(document).on('click', '.dialog-close, .noneBtn .selList li .item',function(e){
+                e.preventDefault();
+                var pop = $(this).attr('href');
+                //$('.popWrap.bottom').hide();
+                if (pop == '#' || pop == '#none' || pop == undefined){
+                    pop = $(this).closest('.popWrap');
+                }
+                popType.close(pop);
+            })
+            
+            $('.bottom').click(function(e) {   
+                if($(e.target).find(".popup").length) {
+                    e.preventDefault();
+                    var pop = $(this).attr('href');
+                    if (pop == '#' || pop == '#none' || pop == undefined){
+                        pop = $(this).closest('.popWrap');
+                    }
+                    popType.close(pop);
+                }
+            });
+        }
+    }
+    </script>
+
+
+    
     <style>
        *{padding: 0; font-family: 'Noto Sans KR', sans-serif;}
        html,
@@ -183,6 +290,45 @@
         background: linear-gradient(to right, #000 0%, #000 20%, #fff 20%, #fff 40%, #000 40%, #000 50%, #fff 50%, #fff 70%, #000 70%, #000 90%, #fff 90%, #fff 100%);
         background-size: 7.5% 100%;
         }
+        .popWrap {display:none; justify-content:center; align-items:center; position:fixed; left:0; right:0; top:0; bottom:0; width:100%; height:100%; padding:0 40px; background-color:rgba(0, 0, 0, .8); transition:opacity 0.4s; outline:rgba(0, 0, 0, .5); overflow:hidden; opacity:0; z-index:999;}
+        .popWrap .btnIco-close {position:absolute; right:5px; top:15px; z-index:99;}
+        .popWrap:not(.full):not(.bottom) .btnIco-close {display:none;}
+        .popup {position:relative; width:100%; border-radius:16px; background-color:#FFF;}
+        .popup .popHead {display:table; position:absolute; left:0; top:0; width:100%; background-color:#FFF; overflow:hidden; z-index:99;}
+        .popup .popHead h1 {display:table-cell; padding:1px 24px 0; font-size:2.4rem; line-height:1.2; vertical-align:middle;}
+        .popup .popBody {overflow-y:auto;}
+        .popup .popBody ul{list-style: none;}
+        .popup .btnArea.sticky {position:fixed; width:100%; padding:48px 20px 24px;}
+        .popup .btnArea.sticky.op {opacity: 80%;}
+        .popup .btnArea.noSticky button{width:100%;margin:0;} /*self_0630*/
+
+        .popWrap:not(.full):not(.bottom) .btnArea.sticky {border-radius:0 0 16px 16px; overflow:hidden; position:absolute;}
+        .popWrap:not(.alert) .btnArea.sticky [class^=btn-] {margin:0 4px;}
+
+        .popWrap.noneBtn:not(.alert) .popBody {padding-bottom:24px !important;}
+        .nowOpen {display:flex; opacity:1;}
+
+        .popWrap.layer .btnArea.sticky [class^=btn-] {min-height:48px; padding:5px 5px; border-radius:12px; font-size:16px;}
+        .popWrap.layer .popHead {padding:56px 0 24px; border-radius:16px 16px 0 0;}
+        .popWrap.layer .popHead h1 {line-height:1.4;}
+        .popWrap.layer .popBody {min-height:316px; max-height:550px; padding:48px 24px 120px; font-weight:500;}
+        .popWrap.layer .text {margin-bottom:24px;}
+        .popWrap.layer .txtList.disc {font-weight:300;}
+        .popWrap.bottom {display:flex; top:100%;}
+        .popWrap.bottom .popup {position:fixed; left:0; bottom:-100%; width:100vw; border-radius:24px 24px 0 0; transition:all 0.35s ease-in-out;}
+        .popWrap.bottom .popHead {height:60px; border-radius:24px 24px 0 0; overflow:hidden;}
+        .popWrap.bottom .popHead h1 {padding-right:40px; font-size:20px; vertical-align:bottom;}
+        .popWrap.bottom .popBody {min-height:25vh; max-height:75vh; padding:36px 24px 120px; overflow-y:auto;}
+        .popWrap.bottom .popHead + .popBody {padding-top:80px;}
+        .popWrap.bottom .btnArea.sticky {padding:40px 16px 24px;}
+        .popWrap.bottom .btnIco-close {top:27px;}
+        .popWrap.bottom .attachList + .btnIco-close {top:20px;}
+        .popWrap.bottom .btnArea.sticky{display:none;}
+        .popWrap.bottom.nowOpen {top:0}
+        .popWrap.bottom.nowOpen .btnArea.sticky{display:flex;}
+        .popWrap.bottom.nowOpen .popup {bottom:0;}
+        .lock,
+        .lock body {overflow:hidden; -webkit-overflow-scrolling:none;}
     </style>
     
 </head>
@@ -278,8 +424,35 @@
             <!-- /barcode -->
           </div>
         </div>
+        <button type="button" class="btn-p" onclick="popType.open('#popBottomNbtn', this);">bottomSheet</button>
+    </div>
+      <!-- bottom popup (s) -->
+      <div class="popWrap bottom" id="popBottomNbtn">
+        <div class="popup">
+          <div class="popHead">
+            <h1>국가 선택</h1>
+          </div>
+          <div class="popBody">
+            <ul class="selList">
+              <li>
+                <button type="button" class="item">뉴질랜드령토켈라우제도</button>
+              </li>
+              <li>
+                <button type="button" class="item">니제르</button>
+              </li>
+              <li>
+                <button type="button" class="item">니카라과</button>
+              </li>
+              <li>
+                <button type="button" class="item sel">대한민국</button>
+              </li>
+              <li>
+                <button type="button" class="item">덴마크</button>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <script>
-    </script>
+      <!-- bottom popup (e) -->
 </body>
 </html>
